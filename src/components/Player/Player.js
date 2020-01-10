@@ -4,15 +4,22 @@ import HealthBar from '../HealthBar/HealthBar';
 
 import './Player.scss';
 
-const Player = ({playerType}: String) => (
+type args = {
+  playerType:String,
+  hp:Number,
+  diceOne:Number,
+  diceTwo:Number,
+}
+
+const Player = (args) => (
     <div className='playerContainer'>
-      <span className='playerType'>{playerType}</span>
+      <span className='playerType'>{args.playerType}</span>
       <div className='playerHP'>
-        <HealthBar hpValue={100} />
+        <HealthBar hpValue={args.hp} />
       </div>
       <div className='playerDice'>
-        <span>First Number: </span>
-        <span>Second Number: </span>
+        <span>First Dice: {args.diceOne}</span>
+        <span>Second Number: {args.diceTwo}</span>
       </div>
     </div>
 )
