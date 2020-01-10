@@ -15,5 +15,17 @@
       color: #B8D4E3;
       background-color: #66101F;
     }
+    .endContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-direction: column;
+    }
+    .win > h2{
+      color: #D4AD37;
+    }
+    .loss > h2{
+      color: #990000;
+    }
   }
 }

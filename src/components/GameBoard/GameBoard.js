@@ -1,6 +1,6 @@
 import React from 'react';
 import Player from '../Player/Player';
-import { Button, Modal } from '@material-ui/core';
+import { Button } from '@material-ui/core';
 
 import './GameBoard.scss';
 
@@ -14,7 +14,7 @@ class GameBoard extends React.Component {
       playersNumber: [0, 0],
       monstersNumber: [0, 0],
     }
-
+    this.startEndGame = this.startEndGame.bind(this);
   }
 
   componentDidMount() {
@@ -47,14 +47,61 @@ class GameBoard extends React.Component {
     }
   }
 
-  render() {
-    // var modal;
-    // if (this.state.playerHP >= 0) {
-    //   modal = <Modal aria-labelledby='You win' open={true}>You win!</Modal>
-    // } else if (this.state.monsterHP >= 0) {
-    //   modal = <Modal aria-labelledby='Game over' open={true}>Game over.</Modal>
-    // }
+  startEndGame = (pHP, mHP) => {
+    if (pHP > 0 && mHP > 0) {
+      return <Button 
+            className='playBtn' 
+            onClick={this.rollDices}
+            size='large'
+            variant='contained' 
+          >
+            Play
+          </Button>
+    } else if (pHP <= 0) {
+      return (
+        <div className='endContainer loss'>
+          <h2>Game over :(</h2> 
+          <Button d
+            className='playBtn' 
+            onClick={() => this.setState(state => ({
+              playerHP: 100,
+              monsterHP: 100,
+              playersNumber: [0, 0],
+              monstersNumber: [0, 0],
+            }))}
+            size='large'
+            variant='contained' 
 
+          >
+            Restart
+          </Button>
+        </div>
+      );
+    } else if (mHP <= 0) {
+      return (
+        <div className='endContainer win'>
+          <h2>You win!</h2> 
+          <Button d
+            className='playBtn' 
+            onClick={() => this.setState(state => ({
+              playerHP: 100,
+              monsterHP: 100,
+              playersNumber: [0, 0],
+              monstersNumber: [0, 0],
+            }))}
+            size='large'
+            variant='contained' 
+
+          >
+            Restart
+          </Button>
+        </div>
+      );
+    }
+  }
+
+  render() {
+    
     return (
       <div className='gameBoardContainer'>
         <Player 
@@ -64,15 +111,7 @@ class GameBoard extends React.Component {
           diceTwo={this.state.playersNumber[1]}
         />
         <div className='board'>
-          <Button 
-            className='playBtn' 
-            onClick={this.rollDices}
-            size='large'
-            variant='contained' 
-
-          >
-            Play
-          </Button>
+          {this.startEndGame(this.state.playerHP, this.state.monsterHP)}
         </div>
         <Player 
           playerType='Monster'
@@ -80,9 +119,6 @@ class GameBoard extends React.Component {
           diceOne={this.state.monstersNumber[0]}
           diceTwo={this.state.monstersNumber[1]}  
         />
-        {/* <div className='modal'>
-          {modal}
-        </div> */}
       </div>
     )
   }
