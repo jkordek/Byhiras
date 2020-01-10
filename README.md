@@ -5,6 +5,9 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To create this application I used create-react-app. Also i added few technologies like Flow and Node-Sass.
 UI kit used in this project is Material-UI.
 
+## Not done yet
+- responsiveness
+
 ## Available Scripts
 
 Commands you need:
