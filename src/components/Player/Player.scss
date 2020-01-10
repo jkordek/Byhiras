@@ -1,0 +1,17 @@
+.playerContainer {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .playerHP {
+    width: 100%;
+  }
+  .playerDice {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-direction: column;
+  }
+}
