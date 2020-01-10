@@ -1,6 +1,6 @@
 import React from 'react';
 import Player from '../Player/Player';
-import { Button } from '@material-ui/core';
+import { Button, Modal } from '@material-ui/core';
 
 import './GameBoard.scss';
 
@@ -48,6 +48,13 @@ class GameBoard extends React.Component {
   }
 
   render() {
+    // var modal;
+    // if (this.state.playerHP >= 0) {
+    //   modal = <Modal aria-labelledby='You win' open={true}>You win!</Modal>
+    // } else if (this.state.monsterHP >= 0) {
+    //   modal = <Modal aria-labelledby='Game over' open={true}>Game over.</Modal>
+    // }
+
     return (
       <div className='gameBoardContainer'>
         <Player 
@@ -57,8 +64,14 @@ class GameBoard extends React.Component {
           diceTwo={this.state.playersNumber[1]}
         />
         <div className='board'>
-          <Button variant='contained' color='secondary' onClick={this.rollDices}>
-            Play!
+          <Button 
+            className='playBtn' 
+            onClick={this.rollDices}
+            size='large'
+            variant='contained' 
+
+          >
+            Play
           </Button>
         </div>
         <Player 
@@ -67,6 +80,9 @@ class GameBoard extends React.Component {
           diceOne={this.state.monstersNumber[0]}
           diceTwo={this.state.monstersNumber[1]}  
         />
+        {/* <div className='modal'>
+          {modal}
+        </div> */}
       </div>
     )
   }

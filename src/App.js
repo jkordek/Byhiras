@@ -6,6 +6,7 @@ import './App.scss';
 function App() {
   return (
     <div className="App">
+      <span className='title'>Battle Game</span>
       <GameBoard />
     </div>
   );

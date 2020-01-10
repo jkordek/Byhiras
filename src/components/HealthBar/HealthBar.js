@@ -6,7 +6,7 @@ import './HealthBar.scss';
 
 const HealthBar = ({hpValue}: number) => (
   <div className='hpBarContainer'>
-    <span className='barLabel'>{`HP:` + hpValue}</span>
+    <span className='barLabel'>{`HP: ` + hpValue}</span>
     <LinearProgress variant='determinate' color='secondary' value={hpValue} />
   </div>
 );

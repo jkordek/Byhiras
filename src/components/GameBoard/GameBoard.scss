@@ -9,5 +9,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    .playBtn {
+      font-family: 'Righteous', cursive;
+      font-size: 30px;
+      color: #B8D4E3;
+      background-color: #66101F;
+    }
   }
 }
