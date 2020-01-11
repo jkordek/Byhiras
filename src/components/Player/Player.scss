@@ -1,16 +1,35 @@
 .playerContainer {
   width: 40%;
-  height: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  background-color: #24203880;
+  padding: 20px;
+  @media screen and (max-width: 599px) {
+    width: 100%;
+    padding: 0;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1023px) {
+    width: 100%;
+    padding: 0;
+  }
   .playerType {
     font-size: 40px;
+    @media screen and (max-width: 1023px) {
+      font-size: 30px;
+      margin-top: 10px;
+    }
   }
   .playerHP {
     width: 100%;
     margin: 20px 0;
+    @media screen and (max-width: 1023px) {
+      font-size: 30px;
+      .hpBarContainer {
+        text-align: center;
+      }
+    }
   }
   .playerDice {
     width: 100%;
@@ -18,5 +37,11 @@
     justify-content: space-between;
     flex-direction: column;
     font-size: 30px;
+    @media screen and (max-width: 1023px) {
+      justify-content: space-around;
+      flex-direction: row;
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
   }
 }

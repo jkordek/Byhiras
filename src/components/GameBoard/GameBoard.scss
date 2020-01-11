@@ -4,14 +4,26 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: row;
+  @media screen and (max-width: 599px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
+  @media screen and (min-width: 600px) and (max-width: 1023px) {
+    flex-direction: column;
+    justify-content: space-between;
+  }
   .board {
     width: 20%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    @media screen and (max-width: 1023px) {
+      width: 100%;
+    }
     .playBtn {
       font-family: 'Righteous', cursive;
-      font-size: 30px;
+      font-size: 25px;
       color: #B8D4E3;
       background-color: #66101F;
     }
@@ -20,12 +32,13 @@
       justify-content: center;
       align-items: center;
       flex-direction: column;
+      background-color: #24203880;
     }
     .win > h2{
       color: #D4AD37;
     }
     .loss > h2{
-      color: #990000;
+      color: #e90404;
     }
   }
 }

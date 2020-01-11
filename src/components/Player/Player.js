@@ -19,7 +19,7 @@ const Player = (args) => (
       </div>
       <div className='playerDice'>
         <span>First Dice: {args.diceOne}</span>
-        <span>Second Number: {args.diceTwo}</span>
+        <span>Second Dice: {args.diceTwo}</span>
       </div>
     </div>
 )
