@@ -4,7 +4,7 @@ import { Button } from '@material-ui/core';
 
 import './GameBoard.scss';
 
-class GameBoardNew extends React.Component {
+class GameBoard extends React.Component {
   constructor(props) {
     super(props);
 
@@ -26,21 +26,23 @@ class GameBoardNew extends React.Component {
   }
 
   rollDices = () => {
-    let randomNumbers = [0, 0, 0, 0];
-    randomNumbers.map((number, index) => {
-      randomNumbers[index] = Math.floor(Math.random() * 6) + 1;
-    })
-    if ((randomNumbers[0] + randomNumbers[1]) > (randomNumbers[2], randomNumbers[3])) {
+    let playerDiceOne = Math.floor(Math.random() * 6) + 1;
+    let playerDiceTwo = Math.floor(Math.random() * 6) + 1;
+    let monsterDiceOne = Math.floor(Math.random() * 6) + 1;
+    let monsterDiceTwo = Math.floor(Math.random() * 6) + 1;
+    let playerHP = this.state.playerHP;
+    let monsterHP = this.state.monsterHP;
+    if ((playerDiceOne + playerDiceTwo) > (monsterDiceOne + monsterDiceTwo)) {
       this.setState(state => ({
-        monsterHP: this.state.monsterHP - ((randomNumbers[0] + randomNumbers[1]) - (randomNumbers[2] + randomNumbers[3])),
-        playersNumber: [randomNumbers[0], randomNumbers[1]],
-        monstersNumber: [randomNumbers[2], randomNumbers[3]],
+        monsterHP: monsterHP - ((playerDiceOne + playerDiceTwo) - (monsterDiceOne + monsterDiceTwo)),
+        playersNumber: [playerDiceOne, playerDiceTwo],
+        monstersNumber: [monsterDiceOne, monsterDiceTwo],
       }))
     } else {
       this.setState(state => ({
-        monsterHP: this.state.monsterHP - ((randomNumbers[2] + randomNumbers[3]) - (randomNumbers[0] + randomNumbers[1])),
-        playersNumber: [randomNumbers[0], randomNumbers[1]],
-        monstersNumber: [randomNumbers[2], randomNumbers[3]],
+        playerHP: playerHP - ((monsterDiceOne + monsterDiceTwo) - (playerDiceOne + playerDiceTwo)),
+        playersNumber: [playerDiceOne, playerDiceTwo],
+        monstersNumber: [monsterDiceOne, monsterDiceTwo],
       }))
     }
   }
@@ -69,6 +71,7 @@ class GameBoardNew extends React.Component {
             }))}
             size='large'
             variant='contained' 
+
           >
             Restart
           </Button>
@@ -121,4 +124,4 @@ class GameBoardNew extends React.Component {
   }
 }
 
-export default GameBoardNew;
+export default GameBoard;

@@ -5,6 +5,17 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 To create this application I used create-react-app. Also i added few technologies like Flow and Node-Sass.
 UI kit used in this project is Material-UI.
 
+I want to expand this project and I want to add more functionalities.
+
+## TODO
+- [ ] - Add equipment
+- [ ] - Add more Monsters and personalize them more
+- [ ] - Add loot system
+- [ ] - Add statistics for player character
+- [ ] - Add Save/Load button
+- [ ] - Add input for Player name
+- [ ] - Add better graphics
+
 ## Available Scripts
 
 Commands you need:
