@@ -1,29 +1,21 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import Player from '../Player/Player';
 import { Button } from '@material-ui/core';
 
 import './GameBoard.scss';
 
-class GameBoardNew extends React.Component {
-  constructor(props) {
-    super(props);
+const GameBoardNew = () => {
+  const [playerHP, setPlayerHP] = useState(100)
+  const [monsterHP, setMonsterHP] = useState(100)
+  const [playerDices, setPlayerDices] = useState([0, 0])
+  const [monsterDices, setMonsterDices] = useState([0, 0])
 
-    this.state = {
-      playerHP: 100,
-      monsterHP: 100,
-      playersNumber: [0, 0],
-      monstersNumber: [0, 0],
-    }
-    this.startEndGame = this.startEndGame.bind(this);
-  }
-
-  componentDidMount() {
-    if (this.state.playerHP> 0 && this.state.monsterHP <= 0) {
+  useEffect(() => {
+    (playerHP > 0 && monsterHP <= 0) ?
       console.log('Player won! :)')
-    } else if (this.state.playerHP <= 0 && this.state.monsterHP > 0) {
+    :
       console.log('Player loose! :(')
-    }
-  }
+  }, [])
 
   rollDices = () => {
     let randomNumbers = [0, 0, 0, 0];
@@ -95,30 +87,27 @@ class GameBoardNew extends React.Component {
         </div>
       );
     }
-  }
+  } 
 
-  render() {
-    
-    return (
-      <div className='gameBoardContainer'>
-        <Player 
-          playerType='Player' 
-          hp={this.state.playerHP} 
-          diceOne={this.state.playersNumber[0]}
-          diceTwo={this.state.playersNumber[1]}
-        />
-        <div className='board'>
-          {this.startEndGame(this.state.playerHP, this.state.monsterHP)}
-        </div>
-        <Player 
-          playerType='Monster'
-          hp={this.state.monsterHP}
-          diceOne={this.state.monstersNumber[0]}
-          diceTwo={this.state.monstersNumber[1]}  
-        />
+  return (
+    <div className='gameBoardContainer'>
+      <Player 
+        playerType='Player' 
+        hp={this.state.playerHP} 
+        diceOne={this.state.playersNumber[0]}
+        diceTwo={this.state.playersNumber[1]}
+      />
+      <div className='board'>
+        {this.startEndGame(this.state.playerHP, this.state.monsterHP)}
       </div>
-    )
-  }
+      <Player 
+        playerType='Monster'
+        hp={this.state.monsterHP}
+        diceOne={this.state.monstersNumber[0]}
+        diceTwo={this.state.monstersNumber[1]}  
+      />
+    </div>
+  )
 }
 
 export default GameBoardNew;
