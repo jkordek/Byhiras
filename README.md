@@ -9,7 +9,7 @@ I want to expand this project and I want to add more functionalities.
 
 ## TODO
 - [ ] - Add equipment
-- [ ] - Add more Monsters and personalize them more
+- [ ] - Add more different Monsters
 - [ ] - Add loot system
 - [ ] - Add statistics for player character
 - [ ] - Add Save/Load button
